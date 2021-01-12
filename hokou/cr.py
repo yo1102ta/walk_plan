@@ -32,28 +32,35 @@ s10 = servo(10)
 s12 = servo(12)
 s13 = servo(13)
 s14 = servo(14)
-ka=-2
-s0_f=100
+ka=2
+ka2=0
+s0_f=100+ka2
 s1_f=119
 s2_f=115
 
-s4_f=80+1
+s4_f=80+ka2
 s5_f=80+ka
 s6_f=65
 
-s8_f=80
+s8_f=80+ka2
 s9_f=123-ka
 s10_f=133
 
-s12_f=70
+s12_f=70+ka2
 s13_f=84
 s14_f=71
 
 s=[s0_f,s1_f,s2_f,0,s4_f,s5_f,s6_f,0,s8_f,s9_f,s10_f,0,s12_f,s13_f,s14_f]
 
-motion1=[[-42, 66], [-47, 72], [-49, 78], [-49, 81], [-47, 81], [-46, 82], [-44, 82], [-43, 82], [-41, 82], [-39, 82],
-[-37, 81], [-36, 81], [-32, 78], [-28, 72], [-26, 66], [-27, 64],
-[-29, 64], [-31, 65], [-32, 65], [-34, 65], [-35, 65], [-37, 65], [-38, 64], [-39, 64]]
+#-50
+motion1=[[-48, 59], [-52, 65], [-56, 72], [-56, 76], [-55, 77], [-54, 78], [-53, 79], [-52, 80], [-50, 80], [-49, 81], [-47, 81], [-46, 82], [-42, 80], [-38, 74], [-36, 67], [-37, 65], [-38, 64], [-39, 64], [-40, 63], [-41, 62], [-42, 62], [-43, 61], [-44, 60], [-45, 58]]
+
+
+
+#-10
+motion2=[[-40, 67], [-44, 73], [-47, 79], [-46, 82], [-44, 82], [-43, 82], [-41, 82], [-39, 82], [-37, 81], [-36, 81], [-34, 80], [-32, 80], [-28, 76], [-24, 70], [-22, 64], [-24, 62], [-25, 63], [-27, 64], [-29, 64], [-31, 65], [-32, 65], [-34, 65], [-35, 65], [-37, 65]]
+
+
 
 #set
 
@@ -62,10 +69,10 @@ s[1]=-motion1[15][0]+s1_f
 s[2]=-motion1[15][1]+s2_f
 s[5]=motion1[23][0]+s5_f
 s[6]=motion1[23][1]+s6_f
-s[9]=-motion1[15][0]+s9_f
-s[10]=-motion1[15][1]+s10_f
-s[13]=motion1[23][0]+s13_f
-s[14]=motion1[23][1]+s14_f
+s[9]=-motion2[15][0]+s9_f
+s[10]=-motion2[15][1]+s10_f
+s[13]=motion2[23][0]+s13_f
+s[14]=motion2[23][1]+s14_f
 
 
 s0.setPos(s[0])
@@ -86,20 +93,21 @@ s6.setPos(s[6])
 s13.setPos(s[13])
 s14.setPos(s[14])
 time.sleep(2)
-
+count_ave=0
+cy_ave=0
 i=0
 j=0
 #katamuki
 k=8
 #5
-#8
+#8 main
 #15
 
 k2=4
-
+t1 = time.time()
 while True:
-	print("i="+str(i))
-	print("j="+str(j))
+	#print("i="+str(i))
+	#print("j="+str(j))
 	if j<=15:
 		s[5]=motion1[i][0]+s5_f
 		s[6]=motion1[i][1]+s6_f
@@ -116,8 +124,8 @@ while True:
 			i=0
 
 	elif 16<=j and j<=31:
-		s[13]=motion1[i][0]+s13_f
-		s[14]=motion1[i][1]+s14_f
+		s[13]=motion2[i][0]+s13_f
+		s[14]=motion2[i][1]+s14_f
 
 		s[0]=s0_f+k
 		s[8]=s8_f+k
@@ -135,10 +143,10 @@ while True:
 		s[2]=-motion1[i+20][1]+s2_f
 		s[5]=motion1[i+16][0]+s5_f
 		s[6]=motion1[i+16][1]+s6_f
-		s[9]=-motion1[i+20][0]+s9_f
-		s[10]=-motion1[i+20][1]+s10_f
-		s[13]=motion1[i+16][0]+s13_f
-		s[14]=motion1[i+16][1]+s14_f
+		s[9]=-motion2[i+20][0]+s9_f
+		s[10]=-motion2[i+20][1]+s10_f
+		s[13]=motion2[i+16][0]+s13_f
+		s[14]=motion2[i+16][1]+s14_f
 
 		s[4]=s4_f
 		s[12]=s12_f
@@ -173,8 +181,8 @@ while True:
 
 
 	elif 52<=j and j<=67:
-		s[9]=-motion1[i][0]+s9_f
-		s[10]=-motion1[i][1]+s10_f
+		s[9]=-motion2[i][0]+s9_f
+		s[10]=-motion2[i][1]+s10_f
 
 		s[4]=s4_f-k
 		s[12]=s12_f-k
@@ -193,10 +201,10 @@ while True:
 		s[2]=-motion1[i+16][1]+s2_f
 		s[5]=motion1[i+20][0]+s5_f
 		s[6]=motion1[i+20][1]+s6_f
-		s[13]=motion1[i+20][0]+s13_f
-		s[14]=motion1[i+20][1]+s14_f
-		s[9]=-motion1[i+16][0]+s9_f
-		s[10]=-motion1[i+16][1]+s10_f
+		s[13]=motion2[i+20][0]+s13_f
+		s[14]=motion2[i+20][1]+s14_f
+		s[9]=-motion2[i+16][0]+s9_f
+		s[10]=-motion2[i+16][1]+s10_f
 
 		s[0]=s0_f
 		s[8]=s8_f
@@ -230,7 +238,7 @@ while True:
 	s13.setPos(s[13])
 	s14.setPos(s[14])
 
-	#time.sleep(0.002)
+	time.sleep(0.005)
 
 	#s[5] = int(input()) #iを取得し、intに値を入れる
 
@@ -246,5 +254,20 @@ while True:
 	if j==72:
 		i=0
 		j=0
+		count_ave+=1
+		t2 = time.time()
+		cy=t2-t1
+		print(cy)
+		cy_ave+=cy
+
+		if count_ave%10==0 :
+			print ("\nAve:"+str(cy_ave)+"\n")
+			cy_ave=0
+		t1 = time.time()
+
+
+	#if j==72:
+	#	i=0
+	#	j=0
 
 	#time.sleep(0.5)

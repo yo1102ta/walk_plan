@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 fig = plt.figure()
 
 #脚スタート
-Sx = -20
-Sy = -190
+Sx = -70
+Sy = -160
 
 #Linkの長さ
 L1 = 108.454
@@ -23,7 +23,7 @@ M2 = [[0 for a in range(2)] for b in range(8)]
 
 r=10
 stride=40
-h=20
+h=30
 c=5
 C=0
 C2=5

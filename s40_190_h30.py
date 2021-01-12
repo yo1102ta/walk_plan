@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 fig = plt.figure()
 
 #脚スタート
-Sx = -20
+Sx = -50
 Sy = -190
 
 #Linkの長さ

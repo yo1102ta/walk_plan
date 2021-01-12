@@ -1,3 +1,27 @@
+#maezyusin
+		s[1]-=b
+		s[2]+=b
+		#s[5]+=b
+		#s[6]-=b
+		s[9]+=b
+		s[10]-=b
+		s[13]-=b
+		s[14]+=b
+
+    #usirozyusin
+		s[1]+=b
+		s[2]-=b
+		s[5]-=b
+		s[6]+=b
+		s[9]-=b
+		s[10]+=b
+		#s[13]+=b
+		#s[14]-=b
+
+
+
+
+
 基本
 
 yota@yota:~/Documents/plan$ python3 24_daen.py
